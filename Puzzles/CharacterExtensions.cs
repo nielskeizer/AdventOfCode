@@ -1,4 +1,4 @@
-namespace AdventOfCode.TwentyTwentyTwo
+namespace Puzzles.TwentyTwentyTwo
 {
     public static class CharacterExtensions
     {

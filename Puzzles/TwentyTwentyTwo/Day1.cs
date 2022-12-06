@@ -1,19 +1,19 @@
-namespace AdventOfCode.TwentyTwentyTwo
+namespace Puzzles.TwentyTwentyTwo
 {
     public class Day1 : IPuzzle
     {
-        public string SolveFirst(string input)
+        public string SolveFirst(string[] input)
         {
-            var foods = input.Split("\n");
+            var foods = input;
 
             List<Elf> elves = MakeElves(foods);
 
             return elves.Max(x => x.Calories).ToString();
         }
 
-        public string SolveSecond(string input)
+        public string SolveSecond(string[] input)
         {            
-            var foods = input.Split("\n");
+            var foods = input;
 
             List<Elf> elves = MakeElves(foods);
 

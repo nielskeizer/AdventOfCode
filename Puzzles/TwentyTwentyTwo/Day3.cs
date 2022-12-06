@@ -1,15 +1,15 @@
-namespace AdventOfCode.TwentyTwentyTwo
+namespace Puzzles.TwentyTwentyTwo
 {
     public class Day3 : IPuzzle
     {
-        public string SolveFirst(string input)
+        public string SolveFirst(string[] input)
         {
-            return input.Split("\n").Sum(x => new Rucksack(x).Priority).ToString();
+            return input.Sum(x => new Rucksack(x).Priority).ToString();
         }
 
-        public string SolveSecond(string input)
+        public string SolveSecond(string[] input)
         {
-            var rucksackInputs = input.Split("\n").ToList();
+            var rucksackInputs = input.ToList();
             var numberOfGroups = rucksackInputs.Count() / 3;
 
             var sum = 0;

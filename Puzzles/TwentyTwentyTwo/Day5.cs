@@ -1,14 +1,14 @@
 using System.Text;
 
-namespace AdventOfCode.TwentyTwentyTwo
+namespace Puzzles.TwentyTwentyTwo
 {
     public class Day5 : IPuzzle
     {
-        public string SolveFirst(string input)
+        public string SolveFirst(string[] input)
         {
-            var inputByLine = input.Split("\r\n");
+            var inputByLine = input;
 
-            var separationLine = inputByLine.Select((x, index) => (x, index)).Skip(1).First(y => string.IsNullOrEmpty(y.x)).index;
+            var separationLine = inputByLine.Select((x, index) => (x, index)).First(y => string.IsNullOrEmpty(y.x)).index;
 
             var supplies = CreateSupplies(inputByLine[..separationLine]);
             var steps = CreateSteps(inputByLine[separationLine..]);
@@ -22,7 +22,27 @@ namespace AdventOfCode.TwentyTwentyTwo
                     supplies.MoveCrate(step.SourceStackId, step.TargetStackId);
                 }
 
-                Console.WriteLine(supplies.ToString());
+                //Console.WriteLine(supplies.ToString());
+            }
+
+            return supplies.TopCrates();
+        }
+        
+        public string SolveSecond(string[] input)
+        {
+            var inputByLine = input;
+
+            var separationLine = inputByLine.Select((x, index) => (x, index)).First(y => string.IsNullOrEmpty(y.x)).index;
+
+            var supplies = CreateSupplies(inputByLine[..separationLine]);
+            var steps = CreateSteps(inputByLine[separationLine..]);
+
+            Console.WriteLine(supplies.ToString());
+
+            foreach (var step in steps)
+            {
+                supplies.MoveMultipleCrates(step);
+                //Console.WriteLine(supplies.ToString());
             }
 
             return supplies.TopCrates();
@@ -50,7 +70,7 @@ namespace AdventOfCode.TwentyTwentyTwo
 
             var supplies = new Supplies(numberOfStacks);
 
-            while (lineNumber >= 1)
+            while (lineNumber >= 0)
             {
                 foreach (var (stack, column) in stackColumns)
                 {
@@ -64,11 +84,6 @@ namespace AdventOfCode.TwentyTwentyTwo
             }
 
             return supplies;
-        }
-
-        public string SolveSecond(string input)
-        {
-            throw new NotImplementedException();
         }
 
         class Supplies
@@ -105,6 +120,16 @@ namespace AdventOfCode.TwentyTwentyTwo
             public void MoveCrate(int stackNumberFrom, int stackNumberTo)
             {
                 AddCrate(stackNumberTo, RemoveCrate(stackNumberFrom));
+            }
+
+            public void MoveMultipleCrates(Step step)
+            {
+                var cratesToMove = Enumerable.Range(0, step.NumberOfCrates).Select(x => RemoveCrate(step.SourceStackId));
+
+                foreach (var crate in cratesToMove.Reverse())
+                {
+                    AddCrate(step.TargetStackId, crate);
+                }
             }
 
             bool InvalidStackNumber(int stackNumber) => stackNumber <= 0 || stackNumber > numberOfStacks;

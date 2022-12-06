@@ -1,8 +1,8 @@
-namespace AdventOfCode.TwentyTwentyTwo
+namespace Puzzles.TwentyTwentyTwo
 {
     public class Day2 : IPuzzle
     {
-        public string SolveFirst(string input)
+        public string SolveFirst(string[] input)
         {
             var strategyGuide = new StrategyGuide(input);
             var game = new FirstGame();
@@ -16,7 +16,7 @@ namespace AdventOfCode.TwentyTwentyTwo
             return totalScore.ToString();
         }
 
-        public string SolveSecond(string input)
+        public string SolveSecond(string[] input)
         {
             var strategyGuide = new CorrectStrategyGuide(input);
             var game = new SecondGame();
@@ -37,9 +37,9 @@ namespace AdventOfCode.TwentyTwentyTwo
             List<(Shape, Shape)> strategies = new();
 
             public List<(Shape, Shape)> Strategies => strategies;
-            public StrategyGuide(string input)
+            public StrategyGuide(string[] input)
             {
-                var games = input.Split("\n").Select(x => x.Split(" "));
+                var games = input.Select(x => x.Split(" "));
                 foreach (var game in games)
                 {
                     strategies.Add((opponent[game[0]], player[game[1]]));
@@ -54,9 +54,9 @@ namespace AdventOfCode.TwentyTwentyTwo
             List<(Shape, Result)> strategies = new();
 
             public List<(Shape, Result)> Strategies => strategies;
-            public CorrectStrategyGuide(string input)
+            public CorrectStrategyGuide(string[] input)
             {
-                var games = input.Split("\n").Select(x => x.Split(" "));
+                var games = input.Select(x => x.Split(" "));
                 foreach (var game in games)
                 {
                     strategies.Add((opponent[game[0]], player[game[1]]));

@@ -1,15 +1,15 @@
-namespace AdventOfCode.TwentyTwentyTwo
+namespace Puzzles.TwentyTwentyTwo
 {
     public class Day4 : IPuzzle
     {
-        public string SolveFirst(string input)
+        public string SolveFirst(string[] input)
         {
-            return input.Split("\n").Select(p => new AssignmentPairs(p)).Count(x => x.OneContainsTheOther()).ToString();
+            return input.Select(p => new AssignmentPairs(p)).Count(x => x.OneContainsTheOther()).ToString();
         }
 
-        public string SolveSecond(string input)
+        public string SolveSecond(string[] input)
         {
-            return input.Split("\n").Select(p => new AssignmentPairs(p)).Count(x => x.Overlap()).ToString();
+            return input.Select(p => new AssignmentPairs(p)).Count(x => x.Overlap()).ToString();
         }
 
         class AssignmentPairs
