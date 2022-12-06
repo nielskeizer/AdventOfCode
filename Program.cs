@@ -1,7 +1,7 @@
 ﻿using AdventOfCode.TwentyTwentyTwo;
 using AdventOfCode.TwentyTwentyTwo.Inputs;
 
-var input = Input.Test;
+var input = Input.Day5;
 
 var puzzle = new Day5();
 
