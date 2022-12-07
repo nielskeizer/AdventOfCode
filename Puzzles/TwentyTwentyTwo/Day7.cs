@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace Puzzles.TwentyTwentyTwo
 {
     public class Day7 : IPuzzle
@@ -166,7 +164,7 @@ namespace Puzzles.TwentyTwentyTwo
 
         class FileSystem
         {
-            public Directory TopDirectory { get; set;}
+            public Directory TopDirectory { get; set; } = new("");
             public List<INode> Nodes { get; set; } = new();
         }
     }
