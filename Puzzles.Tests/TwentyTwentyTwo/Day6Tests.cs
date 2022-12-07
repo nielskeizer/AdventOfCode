@@ -22,7 +22,7 @@ namespace Puzzles.Tests.TwentyTwentyTwo
         [Fact]
         public void SecondPuzzle()
         {
-            var input = InputReader.Read("2022\\Day6.txt");;
+            var input = InputReader.Read("2022\\Day6.txt");
 
             var puzzle = new Day6();
 

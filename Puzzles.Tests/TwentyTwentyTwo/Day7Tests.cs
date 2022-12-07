@@ -4,31 +4,31 @@ using Xunit;
 
 namespace Puzzles.Tests.TwentyTwentyTwo
 {
-    public class Day5Tests
+    public class Day7Tests
     {
         
         [Fact]
         public void FirstPuzzle()
         {
-            var input = InputReader.Read("2022\\Day5.txt");
+            var input = InputReader.Read("2022\\Day7.txt");
 
-            var puzzle = new Day5();
+            var puzzle = new Day7();
 
             var solution = puzzle.SolveFirst(input);
 
-            solution.Should().Be("VCTFTJQCG");
+            solution.Should().Be("1491614");
         }
 
         [Fact]
         public void SecondPuzzle()
         {
-            var input = InputReader.Read("2022\\Day5.txt");
+            var input = InputReader.Read("2022\\Day7.txt");
 
-            var puzzle = new Day5();
+            var puzzle = new Day7();
 
             var solution = puzzle.SolveSecond(input);
 
-            solution.Should().Be("GCFGLDNJZ");
+            solution.Should().Be("6400111");
         }
     }
 }

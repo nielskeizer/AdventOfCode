@@ -1,11 +1,11 @@
 ﻿using Puzzles;
 using Puzzles.TwentyTwentyTwo;
 
-var input = InputReader.Read("2022\\Day6.txt");
+var input = InputReader.Read("2022\\Day7.txt");
 
-var puzzle = new Day6();
+var puzzle = new Day7();
 
-var solution1 = puzzle.SolveFirst(input.Skip(0).ToArray());
+var solution1 = puzzle.SolveFirst(input);
 var solution2 = puzzle.SolveSecond(input);
 
 Console.WriteLine(solution1);
