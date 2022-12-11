@@ -1,9 +1,9 @@
 ﻿using Puzzles;
 using Puzzles.TwentyTwentyTwo;
 
-var input = InputReader.Read("2022\\Day10.txt");
+var input = InputReader.Read("2022\\Day11.txt");
 
-var puzzle = new Day10();
+var puzzle = new Day11();
 
 var solution1 = puzzle.SolveFirst(input);
 var solution2 = puzzle.SolveSecond(input);
